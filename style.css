@@ -1,0 +1,291 @@
+/* Kleuren van de pagina staan hier. */
+:root {
+  --bg: #f4efe6;
+  --panel: #fffaf2;
+  --text: #1f1a17;
+  --muted: #64574f;
+  --accent: #d96c2b;
+  --line: #e5d6c8;
+  --success: #2f7d32;
+  --error: #b3261e;
+}
+
+/* Laat alles netjes passen. */
+* {
+  box-sizing: border-box;
+}
+
+/* Opmaak van de hele pagina. */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
+  min-height: 100vh;
+}
+
+/* De pagina wordt niet breder dan nodig. */
+.page-shell {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+/* Bovenste deel met titel. */
+.hero {
+  margin-bottom: 24px;
+}
+
+/* Kleine tekst boven de titel. */
+.eyebrow {
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin: 0 0 12px;
+  font-weight: bold;
+}
+
+/* Grote titel. */
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Tekst onder de titel. */
+.lead {
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 16px 0 0;
+}
+
+/* Hoe kaarten eruit zien. */
+.hero-card,
+.panel,
+.stats article {
+  background: rgba(255, 250, 242, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(51, 31, 18, 0.08);
+}
+
+/* Kaart rechtsboven. */
+.hero-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Labels in kaarten. */
+.hero-card span {
+  display: none;
+}
+
+/* Grote tekstjes. */
+.hero-card strong {
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+/* Normale tekst in kaarten. */
+.hero-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Statistiekvakken bovenaan. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Opmaak van statistiekvakken. */
+.stats article {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Grote getallen. */
+.stats strong {
+  display: block;
+  font-size: 2rem;
+}
+
+/* Kleine labels. */
+.stats span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Berichten op het scherm. */
+.status,
+.loading {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Rode fout. */
+.error {
+  background: #ffebee;
+  color: var(--error);
+}
+
+/* Groen voor succes. */
+.success {
+  background: #e8f5e9;
+  color: var(--success);
+}
+
+/* Oranje voor laad. */
+.loading {
+  background: #fff3e0;
+  color: var(--accent);
+}
+
+/* Twee kolommen. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Kaarten op de pagina. */
+.panel {
+  padding: 20px;
+}
+
+/* Titels in kaarten. */
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Hoe lijsten eruit zien. */
+.goal-list,
+.timeline {
+  display: grid;
+  gap: 14px;
+}
+
+/* Items in lijsten. */
+.goal-card,
+.timeline-item {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* Kopje van items. */
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Titels in items. */
+.goal-header h3,
+.timeline-item h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Kleine labels. */
+.goal-header span,
+.timeline-week {
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: #fff0e6;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+/* Normale tekst. */
+.goal-card p,
+.timeline-item p {
+  margin: 8px 0 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Formulier. */
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+/* Labels en invoervakken. */
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* Stijl voor tekstvakken en het tekstgebied. */
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font: inherit;
+  background: #fffdf9;
+  color: var(--text);
+}
+
+/* Opmaak als je in een vak klikt. */
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(217, 108, 43, 0.25);
+  border-color: var(--accent);
+}
+
+/* De knop waarmee je de workout toevoegt. */
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #d96c2b 0%, #b24f15 100%);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(217, 108, 43, 0.35);
+  transition: all 0.2s ease;
+}
+
+/* Knop reactie. */
+button:hover {
+  background: linear-gradient(135deg, #c45620 0%, #9a3f0a 100%);
+  box-shadow: 0 6px 18px rgba(217, 108, 43, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Hoe workoutitems eruit zien. */
+.timeline-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* Op telefoons wordt alles smaller. */
+@media (max-width: 900px) {
+  .hero,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
