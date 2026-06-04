@@ -1,8 +1,17 @@
+/*
+  Dit bestand bestuurt de webpagina.
+
+  Eenvoudige uitleg voor niet-coders:
+  - De pagina vraagt informatie aan de server (backend) en laat die zien.
+  - Als iemand een workout toevoegt via het formulier, wordt die naar de server gestuurd.
+  - Belangrijke onderdelen: `loadData()` haalt alles op, `addWorkoutEntry()` stuurt een nieuw formulier.
+*/
+
 const { createApp } = Vue;
 
 createApp({
   data() {
-    // Dit zijn alle gegevens van de pagina.
+    // 'data' zijn de variabelen die de pagina gebruikt en laat zien.
     return {
       apiUrl: "http://127.0.0.1:5001",
       goals: [],
@@ -27,6 +36,7 @@ createApp({
   methods: {
     async loadData() {
       // Haal alle informatie van de server op.
+      // Eenvoudig uitgelegd: haal de doelen, workouts en voortgang en zet ze op het scherm.
       this.loading = true;
       this.error = "";
 
@@ -42,7 +52,8 @@ createApp({
         this.workouts = await workoutsResponse.json();
         this.progress = await progressResponse.json();
       } catch (error) {
-        // Laat zien dat iets fout ging.
+        // Als het ophalen niet lukt, geef een eenvoudige foutmelding.
+        // Dit betekent vaak dat de server niet draait (start `python backend/app.py`).
         this.error = "De server antwoordt niet. Start Flask op.";
       } finally {
         this.loading = false;
@@ -50,6 +61,7 @@ createApp({
     },
     async addWorkoutEntry() {
       // Stuur de nieuwe workout naar de server.
+      // In gewone woorden: pak wat de gebruiker heeft ingevuld en stuur het naar de backend.
       this.message = "";
       this.error = "";
 
@@ -69,12 +81,14 @@ createApp({
         const result = await response.json();
 
         if (!response.ok) {
+          // Als de server een fout terugstuurt, geef dat als eenvoudige tekst weer.
           throw new Error(result.error || "Kon workout niet toevoegen.");
         }
 
-        // Voeg de workout toe aan de lijst.
+        // Als het goed ging, voeg de nieuwe workout direct nog even toe aan de pagina.
         this.workouts.push(result);
         this.message = "Workout toegevoegd.";
+        // Maak het formulier klaar voor de volgende invoer.
         this.form.week += 1;
         this.form.topic = "";
         this.form.reflection = "";

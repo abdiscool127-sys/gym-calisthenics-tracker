@@ -1,73 +1,54 @@
 # Gym en Calisthenics Tracker
 
-Een klein project voor je opdracht. Dit project toont hoe een website en een server samenwerken.
+Kort en simpel (uitleg voor iemand zonder programmeerkennis):
 
-## Wat doet het?
-De applicatie helpt je trainingsdoelen en workouts bij te houden. Je kunt doelen zien, nieuwe workouts toevoegen en alles terugzien.
+- Dit project bestaat uit twee delen:
+  - De website die je ziet (frontend) — bestanden in de map `frontend`.
+  - De kleine server die data geeft (backend) — bestanden in de map `backend`.
 
-## Wat wordt gebruikt?
-- **JavaScript** om de pagina interactief te maken.
-- **Vue.js** om de pagina netjes op te bouwen.
-- **Python en Flask** om de server en data te regelen.
-- **Git/GitHub** om je werk op te slaan en te tonen.
+Wat kun je laten zien als bewijs of presentatie:
+- Open de website en laat zien dat je doelen en workouts kunt zien.
+- Laat zien dat je een nieuwe workout toevoegt en dat die direct zichtbaar wordt.
+- Toon je GitHub-repository met commits.
 
-## Projectstructuur
-```text
-keuzedeel/
-├── backend/
-│   ├── app.py
-│   └── requirements.txt
-├── frontend/a
-│   ├── index.html
-│   ├── app.js
-│   └── style.css
-└── README.md
+## Snel starten (stap-voor-stap)
+
+1) Server (backend) starten:
+
+```powershell
+cd backend
+pip install -r requirements.txt
+python app.py
 ```
 
-## Starten van de backend
-1. Ga naar de map `backend`.
-2. Installeer de pakketten:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Start de server:
-   ```bash
-   python app.py
-   ```
-4. De API draait standaard op `http://127.0.0.1:5000`.
+De server draait daarna op `http://127.0.0.1:5001`.
 
-## Starten van de frontend
-Open `frontend/index.html` in je browser.
+2) Website (frontend) openen:
 
-## Hoe werkt het?
-1. Je opent de pagina.
-2. De pagina vraagt data van de server.
-3. De server stuurt de data terug.
-4. De pagina laat alles zien.
+- Open `frontend/index.html` direct in je browser óf bezoek `http://127.0.0.1:5001` nadat de server draait.
 
-## API-endpoints
-- `GET /api/goals` geeft de trainingsdoelen terug.
-- `GET /api/workouts` geeft de workouts terug.
-- `POST /api/workouts` voegt een nieuwe workout toe.
-- `GET /api/progress` geeft een korte samenvatting van de voortgang.
+3) Wat je ziet:
+- Bovenaan: simpele cijfers (aantal doelen, actieve doelen, aantal workouts).
+- Linkerkant: lijst met trainingsdoelen.
+- Rechts: formulier om een nieuwe workout toe te voegen.
+- Onderaan: een timeline met alle ingevoerde workouts.
 
-## Git/GitHub
-Voor je bewijs kun je in GitHub commits tonen zoals:
-- `Initial project structure`
-- `Add Flask API`
-- `Build Vue frontend`
-- `Improve styling and documentation`
+## Belangrijke bestanden (kort uitgelegd)
+- `backend/app.py`: de server - geeft data aan de website.
+- `backend/requirements.txt`: welke Python-pakketten nodig zijn (Flask e.d.).
+- `frontend/index.html`: de webpagina.
+- `frontend/app.js`: de JavaScript die de pagina laat werken (haalt data op en toont het).
+- `frontend/style.css`: hoe de pagina eruitziet.
 
-## Extra uitleg
-Als je wilt laten zien wat de talen doen, open dan [UITLEG-TALEN.md](UITLEG-TALEN.md).
+## API (in eenvoudige woorden)
+- `GET /api/goals` — geeft een lijst met doelen terug.
+- `GET /api/workouts` — geeft alle workouts terug.
+- `POST /api/workouts` — voeg een nieuwe workout toe (wordt door het formulier gebruikt).
+- `GET /api/progress` — geeft een paar getallen terug over voortgang.
 
-## Wat kun je zeggen?
-- Dit is de voorkant (wat je ziet).
-- Dit is de achterkant (de server).
-- Dit is hoe ik het heb bijgehouden (Git/GitHub).
+## Tips voor presenteren
+- Vertel stap voor stap: eerst de website, dan de server, dan hoe je iets toevoegt.
+- Maak screenshots van de werkende website en van de GitHub-pagina.
 
-## Tip voor inleveren
-Maak voordat je inlevert screenshots van:
-- de werkende frontend;
-- de API in de browser of via Postman;
-- je GitHub repository met commits.
+## Extra
+Zie [UITLEG-TALEN.md](UITLEG-TALEN.md) voor een korte, niet-technische uitleg van de gebruikte talen.

@@ -1,8 +1,23 @@
+"""
+Eenvoudige uitleg (voor niet-programmeerders)
+
+- Dit bestand start een kleine webserver op je computer.
+- De webserver luistert meestal op: http://127.0.0.1:5001
+- De website (frontend) haalt informatie op bij deze server.
+
+Wat je moet kunnen uitleggen aan iemand zonder code-kennis:
+- Start de server: open een terminal, ga naar de map 'backend' en voer uit: `python app.py`.
+- Open de website: open `frontend/index.html` in je browser, of ga naar `http://127.0.0.1:5001`.
+- De server heeft eenvoudige taken: "geef doelen", "geef workouts", "voeg een workout toe" en "geef voortgang".
+
+De code hieronder gebruikt Flask (een webframework) om korte antwoorden in JSON te geven.
+"""
+
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import os
 
-# Dit is de server. De server geeft antwoord als de website om informatie vraagt.
+# Maak de Flask-app en vertel waar de front-end bestanden staan.
 app = Flask(
     __name__, static_folder=os.path.join(os.path.dirname(__file__), "../frontend")
 )
@@ -54,37 +69,46 @@ workouts = [
 
 @app.get("/")
 def home():
-    # Dit is de startpagina. Hier zie je wat de server doet.
+    # Voor iemand zonder technische kennis:
+    # Als je de server opent in een browser, laat deze route de startpagina van de website zien.
+    # Het laadt het bestand `frontend/index.html`.
     return send_from_directory(app.static_folder, "index.html")
 
 
 @app.get("/api/goals")
 def get_goals():
-    # Gaat alle doelen naar de website.
+    # Geeft een lijst met trainingsdoelen terug in simpel tekstformaat (JSON).
+    # In gewone woorden: "Hier zijn de doelen die de gebruiker heeft opgegeven."
     return jsonify(training_goals)
 
 
 @app.get("/api/workouts")
 def get_workouts():
-    # Geeft alle workouts naar de website.
+    # Geeft de opgeslagen workouts terug.
+    # Een workout bevat: week, onderwerp en een korte notitie (reflection).
     return jsonify(workouts)
 
 
 @app.post("/api/workouts")
 def add_workout_item():
+    # Voeg een nieuwe workout toe.
+    # Verwachte data (vanuit de website): { week: number, topic: string, reflection: string }
+    # In gewone taal: de gebruiker vult een formulier in en die informatie komt hier terecht.
     # Lees wat de website stuurt.
     data = request.get_json(silent=True) or {}
     week = data.get("week")
     topic = str(data.get("topic", "")).strip()
     reflection = str(data.get("reflection", "")).strip()
 
-    # Controleer of alles ingevuld is.
+    # Controleer of de ingevulde gegevens logisch zijn.
     if not isinstance(week, int) or week <= 0:
         return jsonify({"error": "Week must be a positive number."}), 400
     if not topic or not reflection:
         return jsonify({"error": "Topic and reflection are required."}), 400
 
-    # Sla de workout op en geef het terug.
+    # Sla de nieuwe workout op in het tijdelijke geheugen van deze server (lijsten).
+    # Let op: dit wacht alleen in het geheugen van deze draaiende server en wordt niet bewaard als
+    # de server stopt. Voor schoolopdracht is dit vaak voldoende.
     new_item = {
         "week": week,
         "topic": topic,
@@ -96,7 +120,8 @@ def add_workout_item():
 
 @app.get("/api/progress")
 def get_progress():
-    # Tel hoeveel doelen en workouts we hebben.
+    # Bereken een kleine samenvatting van de voortgang.
+    # Deze informatie wordt bovenaan de pagina getoond als simpele cijfers.
     total_goals = len(training_goals)
     completed_goals = sum(1 for goal in training_goals if goal["status"] == "Done")
     in_progress_goals = sum(

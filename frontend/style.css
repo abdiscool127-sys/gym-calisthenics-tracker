@@ -1,3 +1,9 @@
+/*
+  CSS (stijl) uitleg voor niet-coders:
+  - Dit bestand bepaalt hoe de pagina eruitziet: kleuren, afstanden en knoppen.
+  - Je hoeft geen code te schrijven om te zeggen wat het doet; geef gewoon aan dat dit de 'looks' regelt.
+*/
+
 /* Kleuren van de pagina staan hier. */
 :root {
   --bg: #f4efe6;
