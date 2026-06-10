@@ -1,11 +1,3 @@
-/*
-  Dit bestand bestuurt de webpagina.
-
-  Eenvoudige uitleg voor niet-coders:
-  - De pagina vraagt informatie aan de server (backend) en laat die zien.
-  - Als iemand een workout toevoegt via het formulier, wordt die naar de server gestuurd.
-  - Belangrijke onderdelen: `loadData()` haalt alles op, `addWorkoutEntry()` stuurt een nieuw formulier.
-*/
 
 const { createApp } = Vue;
 
