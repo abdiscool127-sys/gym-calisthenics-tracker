@@ -1,17 +1,3 @@
-"""
-Eenvoudige uitleg (voor niet-programmeerders)
-
-- Dit bestand start een kleine webserver op je computer.
-- De webserver luistert meestal op: http://127.0.0.1:5001
-- De website (frontend) haalt informatie op bij deze server.
-
-Wat je moet kunnen uitleggen aan iemand zonder code-kennis:
-- Start de server: open een terminal, ga naar de map 'backend' en voer uit: `python app.py`.
-- Open de website: open `frontend/index.html` in je browser, of ga naar `http://127.0.0.1:5001`.
-- De server heeft eenvoudige taken: "geef doelen", "geef workouts", "voeg een workout toe" en "geef voortgang".
-
-De code hieronder gebruikt Flask (een webframework) om korte antwoorden in JSON te geven.
-"""
 
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
