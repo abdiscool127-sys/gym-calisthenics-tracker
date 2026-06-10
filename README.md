@@ -1,15 +1,8 @@
 # Gym en Calisthenics Tracker
 
-Kort en simpel (uitleg voor iemand zonder programmeerkennis):
-
 - Dit project bestaat uit twee delen:
   - De website die je ziet (frontend) — bestanden in de map `frontend`.
   - De kleine server die data geeft (backend) — bestanden in de map `backend`.
-
-Wat kun je laten zien als bewijs of presentatie:
-- Open de website en laat zien dat je doelen en workouts kunt zien.
-- Laat zien dat je een nieuwe workout toevoegt en dat die direct zichtbaar wordt.
-- Toon je GitHub-repository met commits.
 
 ## Snel starten (stap-voor-stap)
 
@@ -19,6 +12,7 @@ Wat kun je laten zien als bewijs of presentatie:
 cd backend
 pip install -r requirements.txt
 python app.py
+python -m flask run --port=5001
 ```
 
 De server draait daarna op `http://127.0.0.1:5001`.
