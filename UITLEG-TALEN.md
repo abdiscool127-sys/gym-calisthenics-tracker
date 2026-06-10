@@ -1,7 +1,5 @@
 # Wat doen de talen?
 
-Dit is een korte, makkelijke uitleg die je aan iemand zonder technische kennis kunt voorlezen.
-
 ## Heel kort (eenvoudig)
 - JavaScript: zorgt dat de pagina reageert op klikken en invullen.
 - Vue.js: helpt om de pagina overzichtelijk te maken (structuur op de pagina).
@@ -10,7 +8,7 @@ Dit is een korte, makkelijke uitleg die je aan iemand zonder technische kennis k
 - Git: houdt bij welke wijzigingen je hebt gemaakt (als een geschiedenisboek).
 - GitHub: is de plek online waar je die geschiedenis (je project) laat zien.
 
-## Iets uitgebreider (in gewone taal)
+## Iets uitgebreider 
 
 - JavaScript: denk aan de logica die zegt "als iemand op deze knop klikt, laat dan deze tekst zien".
 - Vue.js: organiseert stukken van de pagina zodat ze makkelijk opnieuw gebruikt en aangepast kunnen worden.
