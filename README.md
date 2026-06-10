@@ -40,9 +40,5 @@ De server draait daarna op `http://127.0.0.1:5001`.
 - `POST /api/workouts` — voeg een nieuwe workout toe (wordt door het formulier gebruikt).
 - `GET /api/progress` — geeft een paar getallen terug over voortgang.
 
-## Tips voor presenteren
-- Vertel stap voor stap: eerst de website, dan de server, dan hoe je iets toevoegt.
-- Maak screenshots van de werkende website en van de GitHub-pagina.
-
 ## Extra
 Zie [UITLEG-TALEN.md](UITLEG-TALEN.md) voor een korte, niet-technische uitleg van de gebruikte talen.
